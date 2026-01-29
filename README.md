@@ -324,7 +324,7 @@ Provided “as is”, without warranty.
 ## 🔗 Relationship to SSNT
 
 SSIT integrates cleanly with:
-- **[Shunyaya Structural Number Theory (SSNT)](github.com/OMPSHUNYAYA/Structural-Number-Theory)**
+- **[Shunyaya Structural Number Theory (SSNT)](//github.com/OMPSHUNYAYA/Structural-Number-Theory)**
 
 SSNT provides deterministic closure observables.  
 SSIT lifts them into a lawful infinity domain.
