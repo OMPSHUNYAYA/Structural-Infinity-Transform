@@ -1,0 +1,36 @@
+SSIT Phase II (Robust) v2 — Zones + Shock + Guard + IDO Dominators
+==================================================================
+
+run_utc=2026-01-28 04:16:30Z
+n_max=1500000
+near_eps=0.02
+lane_stable=-0.3
+lane_infty=-0.7
+depth_infprox_quantile=0.33
+depth_infprox_value=0.00141653785275
+shock_quantile=0.99
+shock_K_threshold=9.92884475121
+
+Definitions (ASCII)
+------------------
+`H_s(n) = d_min(n) / sqrt(n)`
+`I(n) = 1 / (1 - H_s(n))` when `H_s(n) < 1`; else `I(n)=INF` (INFSET)
+`lane a(n) = clamp(2*R_full(n) - 1)` where `R_full` is mean spacing ratio of divisors within sqrt(n)
+`D_inf(n)` is weighted divisor density within `2..floor(sqrt(n))` normalized to `[0,1]`
+SIS bands are terciles of `D_inf` over FINSET: THIN / MEDIUM / THICK
+Curvature proxy: `K(n) = abs(I(n+1) - 2*I(n) + I(n-1))` over finite triples
+Shock flag: `K(n) >= shock_K_threshold`
+Zones (FINSET only): STABLE_FINITE / TRANSITIONAL / INFINITY_PROXIMAL
+Guard flag: 1 iff zone is INFINITY_PROXIMAL or shock_flag=1
+IDO dominators (FINSET only): count of FINSET objects `o` with `o.lane < lane(n)` and `o.depth <= depth(n)`
+
+Counts
+------
+INFSET_count=114355
+FINSET_count=1385644
+NearInf_FINSET_count=594
+prime_proxy_count=114155
+
+SHA-256
+-------
+scan_csv_sha256=12499832495308284351b162f6e4b696cbd088529dbeb3a094c8ce5e8519ef6c
